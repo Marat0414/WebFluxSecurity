@@ -21,7 +21,6 @@ public class UserService {
     public Mono<UserEntity> registerUser(UserEntity user) {
         return userRepository.save(
                 user.toBuilder()
-
                         .password(passwordEncoder.encode(user.getPassword()))
                         .role(UserRole.USER)
                         .enabled(true)
